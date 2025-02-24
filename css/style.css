@@ -1,0 +1,90 @@
+section.circle-collapse-section {
+    padding: 80px 0;
+    text-align: center;
+}
+.collapse-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 116px;
+    column-gap: 24px;
+}
+.single-collapsable-item {
+    max-width: 300px;
+    border-radius: 300px 300px 0 0;
+    position: relative;
+}
+.single-collapsable-item * {
+    transition: all 0.4s;
+}
+.collapse-content, .circle-image img {
+    position: relative;
+    z-index: 9;
+}
+.single-collapsable-item .circle-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.single-collapsable-item.active .circle-image img, .single-collapsable-item:hover .circle-image img {
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.25);
+}
+.single-collapsable-item .collapse-content {
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+    overflow: hidden;
+    padding: 0 16px;
+    font-size: 20px;
+    line-height: 1.25;
+}
+.single-collapsable-item .collapse-content p {
+    margin: 0;
+    padding: 16px 0 8px;
+}
+.single-collapsable-item.active .collapse-content {
+    max-height: 1000px;
+}
+.collapse-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: calc(100% + 40px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 300px;
+}
+.single-collapsable-item:hover .collapse-toggle, .single-collapsable-item.active .collapse-toggle{
+    background-color: rgba(163, 122, 83, 0.5);
+    height: calc(100% + 100px);
+}
+.single-collapsable-item .collapse-toggle h6 {
+    color: #6A3400;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 300;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+.single-collapsable-item:hover .collapse-toggle h6, .single-collapsable-item.active .collapse-toggle h6{
+    max-height: 24px;
+}
+.single-collapsable-item .collapse-toggle button {
+    border: none;
+    padding: 8px;
+    line-height: 1;
+    background: transparent;
+    cursor: pointer;
+}
+.single-collapsable-item.active .collapse-toggle button {
+    transform: rotate(180deg);
+}
+
