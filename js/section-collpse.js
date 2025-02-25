@@ -4,17 +4,24 @@ document.querySelectorAll(".single-collapsable-item .collapse-toggle button").fo
     });
 });
 
-
-(function($){
-    $(document).ready(function () {
-
-        // $(".single-collapsable-item .collapse-toggle button").click(function () {
-        //     let parent = $(this).closest(".single-collapsable-item");
-            
-        //     parent.toggleClass("active");
-            
-        //     //parent.find(".collapse-content").stop(true, true).slideToggle(); // Ensures smooth animation
-        // });
-
+document.querySelectorAll("button.collapsable-table-toggle").forEach(button => {
+    button.addEventListener("click", function () {
+        this.closest(".collapsable-content").classList.toggle("active");
     });
-}(jQuery));
+});
+
+// (function($){
+//     $(document).ready(function () {
+
+//         $("button.collapsable-table-toggle").click(function () {
+//             let parent = $(this).closest(".collapsable-content");
+            
+//             parent.toggleClass("active");
+            
+//             parent.find(".collapsable-table-content").stop(true, true).toggleClass("open").animate({
+//                 maxWidth: "toggle"
+//             }, 3000);
+//         });
+
+//     });
+// }(jQuery));

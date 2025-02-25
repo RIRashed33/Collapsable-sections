@@ -1,5 +1,5 @@
 section.circle-collapse-section {
-    padding: 80px 0;
+    padding: 140px 0;
     text-align: center;
 }
 .collapse-container {
@@ -88,3 +88,87 @@ section.circle-collapse-section {
     transform: rotate(180deg);
 }
 
+.right-collapse-section {
+    padding: 80px 0;
+}
+.table-collapse-container {
+    max-width: 1370px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.collapsable-content {
+    flex: 1;
+    max-width: 370px;
+    border: 3px solid #A37A53;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+    padding-right: 54px;
+}
+.collapsable-content.active {
+    max-width: 1400px;
+    padding-right: 54px;
+}
+.collapsable-table-images {
+    max-width: 370px;
+    position: relative;
+    z-index: 9;
+    display: flex;
+}
+button.collapsable-table-toggle {
+    position: absolute;
+    line-height: 1;
+    border: none;
+    padding: 8px;
+    background: transparent;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+button.collapsable-table-toggle img {
+    transform: rotate(-90deg);
+}
+.collapsable-table-content {
+    position: absolute;
+    right: 55px;
+    top: 0;
+    width: calc(100% - 370px);
+    min-width: 830px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+.collapsable-content.active .collapsable-table-content {
+    right: 0;
+}
+.collapsable-table-content h2 {
+    font-size: 48px;
+    font-weight: 300;
+    margin: 0 0 16px;
+    color: #A37A53;
+    padding: 0 32px;
+}
+.collapsable-table {
+    background: rgba(163, 122, 83, 0.5);
+    padding: 0 24px;
+    flex: 1;
+}
+.collapsable-table {
+    background: rgba(163, 122, 83, 0.5);
+    padding: 32px;
+    flex: 1;
+    font-size: 20px;
+    font-weight: 300;
+    color: #6A3400;
+}
+.collapsable-table table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+}
