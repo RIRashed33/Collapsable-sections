@@ -1,21 +1,26 @@
+body * {
+    box-sizing: border-box;
+}
 section.circle-collapse-section {
     padding: 140px 0;
-    text-align: center;
 }
 .collapse-container {
-    max-width: 1200px;
+    font-family: "Cardillac", sans-serif;
+    max-width: 1170px;
     margin: 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 116px;
-    column-gap: 24px;
+    column-gap: 30px;
+    padding-bottom: 100px;
 }
 .single-collapsable-item {
     max-width: 300px;
     border-radius: 300px 300px 0 0;
     position: relative;
+    text-align: center;
 }
 .single-collapsable-item * {
     transition: all 0.4s;
@@ -53,6 +58,7 @@ section.circle-collapse-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
     height: calc(100% + 40px);
     position: absolute;
@@ -60,8 +66,8 @@ section.circle-collapse-section {
     top: 0;
     border-radius: 300px;
 }
-.single-collapsable-item:hover .collapse-toggle, .single-collapsable-item.active .collapse-toggle{
-    background-color: rgba(163, 122, 83, 0.5);
+.single-collapsable-item:hover .collapse-toggle, .single-collapsable-item.active .collapse-toggle {
+    background-color: #A37A5350;
     height: calc(100% + 100px);
 }
 .single-collapsable-item .collapse-toggle h6 {
@@ -83,59 +89,161 @@ section.circle-collapse-section {
     line-height: 1;
     background: transparent;
     cursor: pointer;
+    box-shadow: none;
 }
 .single-collapsable-item.active .collapse-toggle button {
     transform: rotate(180deg);
 }
 
-.right-collapse-section {
-    padding: 80px 0;
-}
+
+
+
+
+
+
+
 .table-collapse-container {
-    max-width: 1370px;
+    max-width: 1170px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 24px;
+    position: relative;
+}
+.main-collapse-box {
+    flex: 0 0 370px;
+    max-width: 370px;
+    max-height: 660px;
+}
+.collasable-images {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.2), 8px 13px 15px rgba(0, 0, 0, 0.17), 18px 30px 21px rgba(0, 0, 0, 0.10), 31px 53px 25px rgba(0, 0, 0, 0.03), 49px 82px 27px rgba( 0, 0, 0, 0);
+    z-index: 9;
+    cursor: pointer;
+}
+.collasable-images > * {
+    display: flex;
+    border-radius: 10px;
+}
+.collasable-images > * img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.collasable-images > *:not(.default-image) {
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+}
+.collasable-images > .active-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(90deg, transparent, #fff);
 }
 .collapsable-content {
-    flex: 1;
-    max-width: 370px;
-    border: 3px solid #A37A53;
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s;
-    padding-right: 54px;
-}
-.collapsable-content.active {
-    max-width: 1400px;
-    padding-right: 54px;
-}
-.collapsable-table-images {
-    max-width: 370px;
-    position: relative;
-    z-index: 9;
-    display: flex;
-}
-button.collapsable-table-toggle {
     position: absolute;
-    line-height: 1;
-    border: none;
-    padding: 8px;
-    background: transparent;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+    min-height: 100%;
+    min-width: 370px;
+    width: 370px;
+    max-width: calc(100% - 50px);
+    left: 60px;
+    bottom: 60px;
+    overflow: hidden;
+    padding-right: 60px;
+    transition: all 0.4s;
     cursor: pointer;
+}
+.collapsable-content::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #A37A53;
     z-index: 10;
 }
-button.collapsable-table-toggle img {
+.table-collapse-container.active .collapsable-content {
+    width: 100%;
+}
+.table-collapse-container.hover .collapsable-content, .table-collapse-container.active .collapsable-content  {
+    left: 50px;
+    bottom: 50px;
+}
+.collapsable-content-indicator img {
     transform: rotate(-90deg);
+}
+.table-collapse-container.hover .collasable-images .hover-image {
+    opacity: 1;
+    visibility: visible;
+}
+.table-collapse-container .collasable-images .section-heading {
+    width: calc(100% - 60px);
+    position: absolute;
+    left: inherit;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+}
+.table-collapse-container .collasable-images .section-heading h2 {
+    font-size: 48px;
+    font-weight: 300;
+    color: #A37A53;
+    margin: 0;
+    transition: all 0.4s;
+}
+.table-collapse-container.hover .collasable-images .section-heading h2 {
+    color: #ffffff;
+}
+.table-collapse-container .collasable-images .collapsable-content-indicator {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: -40px;
+    left: inherit;
+    top: calc(50% - 12px);
+    transition: all 0.4s;
+}
+.table-collapse-container.hover .collasable-images .collapsable-content-indicator {
+    opacity: 1;
+    visibility: visible;
+}
+.table-collapse-container.active.hover .collasable-images .collapsable-content-indicator {
+    opacity: 0;
+    visibility: hidden;
+}
+.table-collapse-container.active .collasable-images .active-image {
+    opacity: 1;
+    visibility: visible;
+    z-index: 3;
+}
+.table-collapse-container .right-content {
+    padding-left: 120px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #A37A53;
+    transition: all 0.4s;
+    opacity: 1;
+    visibility: visible;
+}
+.table-collapse-container.active .right-content {
+    opacity: 0;
+    visibility: hidden;
 }
 .collapsable-table-content {
     position: absolute;
-    right: 55px;
+    right: 60px;
     top: 0;
     width: calc(100% - 370px);
     min-width: 830px;
@@ -144,7 +252,7 @@ button.collapsable-table-toggle img {
     flex-direction: column;
     z-index: 5;
 }
-.collapsable-content.active .collapsable-table-content {
+.table-collapse-container.active .collapsable-content .collapsable-table-content {
     right: 0;
 }
 .collapsable-table-content h2 {
@@ -153,22 +261,39 @@ button.collapsable-table-toggle img {
     margin: 0 0 16px;
     color: #A37A53;
     padding: 0 32px;
-}
+} 
 .collapsable-table {
-    background: rgba(163, 122, 83, 0.5);
-    padding: 0 24px;
-    flex: 1;
-}
-.collapsable-table {
-    background: rgba(163, 122, 83, 0.5);
     padding: 32px;
     flex: 1;
     font-size: 20px;
     font-weight: 300;
     color: #6A3400;
 }
+.table-collapse-container.active .collapsable-table {
+    background-color: #A37A5350;
+}
 .collapsable-table table {
     width: 100%;
     height: 100%;
     table-layout: fixed;
+}
+.right-collapsable-content {
+    max-width: calc(100% - 430px);
+    padding-left: 32px;
+    overflow: hidden;
+}
+.table-collapse-container.active .right-collapsable-content {
+    max-width: 0;
+    padding: 0;
+    height: 500px;
+}
+
+
+
+
+@media screen and (max-width: 767px){
+	.collapse-container {
+		flex-direction: column;
+		align-items: center;
+	}
 }
